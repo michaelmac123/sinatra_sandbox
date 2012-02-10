@@ -1,0 +1,63 @@
+:javascript
+
+  $(document).ready(function(){
+
+      canvas = $("#my");
+      context = canvas.get(0).getContext("2d");
+
+    function showStuff(){
+      var x = canvas.width() / 2;
+      var y = canvas.height() / 3;
+
+      var degrees = 1;
+      var radians = degrees * (Math.PI / 180);
+      var radius = radians * 360;
+
+      context.beginPath(); // Start the path
+      context.arc(x, y, 50, 0,radius , false); // Draw a circle
+      context.closePath(); // Close the path
+
+      context.rect(40, 40, 100, 100);
+
+
+
+      context.lineWidth = "5";
+      context.strokeStyle = "gray";
+      context.stroke();
+
+      context.shadowColor = "purple";
+      context.shadowBlur = "20";
+      context.shadowOffsetX = "10";
+      context.shadowOffsetY = "10";
+
+      context.moveTo(188, 150);
+      context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+      context.stroke();
+    }
+
+    function clearStuff(){
+
+      context.clearRect(0, 0, 500, 500);
+    }
+
+    $("a.clear").bind("click",function(){
+      clearStuff();
+    });
+
+    $("a.show").bind("click",function(){
+      showStuff();
+    });
+
+  });
+
+
+%ul
+  %li
+    %a{href: "/"} Home
+  %li
+    %a.clear{href: "#"} Clear me
+  %li
+    %a.show{href: "#"} Show me
+
+
+%canvas#my{width: "500", height: "500" }

@@ -1,0 +1,215 @@
+// Import files
+@import "colors";
+
+// Mixin for rounded
+
+@mixin rounded($radius: 10px){
+	border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+  behavior:url('PIE-1.0/PIE.htc');
+
+}
+@mixin roundedbottom($radius: 10px){
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	-webkit-border-bottom-right-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+}
+
+//Mixins for background gradient
+//Allows for 2 color stops
+@mixin gradient($colorStop1: #fff, $colorStop2: #fff, $g1: .1, $g2: .3){
+	background-color:$colorStop1;
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop($g1, $colorStop1), color-stop($g2, $colorStop2));
+	$g1p:percentage($g1);
+	$g2p:percentage($g2);
+	background-image:-moz-linear-gradient(center top, $colorStop1 $g1p, $colorStop2 $g2p);
+	background-image:-ms-linear-gradient(center top, $colorStop1 $g1p, $colorStop2 $g2p);
+  //-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$colorStop1}', EndColorStr='#{$colorStop2}')"; /* IE8 */;
+}
+
+//Changes primary color by 10%
+@mixin same-gradient($colorStop1: #fff, $g1: .1, $g2: .3){
+  $colorStop2: darken($colorStop1, 10);
+  background-color:$colorStop1;
+  background-image:-webkit-gradient(linear, left top, left bottom, color-stop($g1, $colorStop1), color-stop($g2, $colorStop2));
+  $g1p:percentage($g1);
+  $g2p:percentage($g2);
+  background-image:-moz-linear-gradient(center top, $colorStop1 $g1p, $colorStop2 $g2p);
+  background-image:-ms-linear-gradient(center top, $colorStop1 $g1p, $colorStop2 $g2p);
+}
+
+//Mixin for ie6,7 background gradient add to if very important.
+@mixin gradient-ie67($colorStop1: #fff, $colorStop2: #fff){
+  background-color:$colorStop1;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$colorStop1}, endColorstr=#{$colorStop2});
+}
+
+//Mixin for Inner Glow
+@mixin innerglow($color: $gray, $strength: 10px){
+	box-shadow:inset 0 0 $strength $color;
+	-moz-box-shadow:inset 0 0 $strength $color;
+	-webkit-box-shadow:inset 0 0 $strength $color;
+}
+
+//Mixin for Box Shadow
+@mixin boxshadow($x: 0, $y: 0, $strength: 3px, $color: $gray ){
+	box-shadow:$x $y $strength $color;
+	-moz-box-shadow:$x $y $strength $color;
+	-webkit-box-shadow:$x $y $strength $color;
+  // behavior:url('PIE-1.0/PIE.htc');
+	// For IE 8
+	//-ms-filter:"progid:DXImageTransform.Microsoft.dropShadow(Strength=43,Direction=135,Color='#{$color}')";
+	// For IE 5.5 - 7
+	//filter:progid:DXImageTransform.Microsoft.dropShadow(Strength=3,Direction=135,Color='#{$color}');
+}
+//Mixin for Floats Only need first, others deprecated
+@mixin float($float: left, $position: relative){
+	float:$float;
+	position:$position;
+}
+@mixin floatleft(){
+	float:left;
+	position:relative;
+}
+@mixin floatright(){
+	float:right;
+	position:relative;
+}
+
+//CSS based buttons
+@mixin css-btn($primary, $corner: 5px){
+  $comp:$primary;
+  $top-glow:lighten($primary, 20);
+  $middle-top:lighten($comp, 5);
+  $middle:$primary;
+  $middle-bottom:darken($primary, 5);
+  $bottom-glow:lighten($primary, 5);
+  $inner-glow:lighten($top-glow, 10);
+  border:1px solid $primary;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, $top-glow), color-stop(5%, $middle-top), color-stop(50%, $middle), color-stop(50%, $middle-bottom), color-stop(90%, $bottom-glow));
+  background-image: -moz-linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+  background-image: linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+  -pie-background:linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+  background-color:$primary;
+  box-shadow:           inset 0 0 5px $inner-glow;
+  -moz-box-shadow:      inset 0 0 5px $inner-glow;
+  -webkit-box-shadow:   inset 0 0 5px $inner-glow;
+  color:$white;
+  display:block;
+  font-weight:900;
+  text:{
+    align: center;
+    shadow:0 1px 1px $charcoal;
+    transform:uppercase;
+    }
+  @include rounded($corner);
+  behavior:url('PIE-1.0/PIE.htc');
+  &:hover{
+    color:$offwhite;
+    $primary:darken($primary, 10);
+    $comp:$primary;
+    $top-glow:lighten($primary, 20);
+    $middle-top:lighten($comp, 5);
+    $middle:$primary;
+    $middle-bottom:darken($primary, 5);
+    $bottom-glow:lighten($primary, 5);
+    $inner-glow:lighten($top-glow, 10);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, $top-glow), color-stop(5%, $middle-top), color-stop(50%, $middle), color-stop(50%, $middle-bottom), color-stop(90%, $bottom-glow));
+    background-image: -moz-linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+    background-image: linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+    -pie-background:linear-gradient(top, $top-glow 0%, $middle-top 10%, $middle 50%, $middle-bottom 50%, $bottom-glow 90%);
+    background-color:$primary;
+    box-shadow:           inset 0 0 5px $inner-glow;
+    -moz-box-shadow:      inset 0 0 5px $inner-glow;
+    -webkit-box-shadow:   inset 0 0 5px $inner-glow;
+    behavior:url('PIE-1.0/PIE.htc');
+
+  }
+}
+
+//Search Button With Images
+@mixin search-btn($color){
+	background:transparent 0 0 no-repeat scroll url('/assets/btns/listings-btn.png');
+  color:$white;
+  display:block;
+  height:33px;
+  font-weight:900;
+  text:{
+    align: center;
+    shadow:0 1px 1px $charcoal;
+    transform:uppercase;
+  }
+  width:100px;
+  @if $color == orange {
+		background-position: -230px 0px;
+	  height:40px;
+    &:hover{
+    	background-position:-230px -40px;
+  	}
+	}	@else if $color == blue {
+		background-position: 0px 0px;
+		width:115px;
+		&:hover{
+			background-position:0px -33px;
+      color:$offwhite
+		}
+	}	@else if $color == green {
+		background-position: -115px 0px;
+		width:115px;
+		&:hover{
+			background-position:-115px -33px;
+      color:$offwhite
+		}
+	}	@else if $color == bluesmall {
+		background-position: 0px -66px;
+		width:100px;
+		&:hover{
+			background-position:0px -99px;
+      color:$offwhite
+		}
+	}	@else if $color == greensmall {
+		background-position: -100px -66px;
+		width:100px;
+		&:hover{
+			background-position:-100px -99px;
+      color:$offwhite
+		}
+	} @else if $color == greenwide {
+    background:transparent 0 -523px repeat-x scroll url('/assets/btns/button-sprite.png');
+    width:100px;
+    &:hover{
+      background-position:0px -556px;
+      color:$offwhite
+    }
+  }
+}
+
+// Mixin for flash messaging
+
+@mixin flash {
+	color:$white;
+	@include float(left, absolute);
+	display:none;
+	height:30px;
+  //margin:2px 0 0 -9px;
+  //padding:4px 20px;
+	z-index:1000;
+}
+
+// For clearing floats properly
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

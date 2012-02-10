@@ -1,0 +1,221 @@
+// Import files
+@import "colors";
+@import "mixins";
+
+
+div, ul, li, ol, a{
+  margin:0;
+  padding:0;
+}
+
+//just for sinatra fun!
+#wrapper{
+    display:block;
+    margin:10px auto;
+    width:900px;
+}
+
+.nav-browser{
+  @include float;
+  left:150px;
+  line-height:22px;
+  top:50px;
+  z-index:200;
+}
+
+.nav-browser ul li{display:block;}
+
+.nav-browser ul li a{
+  background-color:$lightgray;
+  color:$charcoal;
+  height:25px;
+
+  display:block;
+  line-height:21px;
+  white-space:nowrap;
+
+}
+
+.nav-browser ul ul {
+  @include float(left, absolute);
+  @include rounded(5px);
+  border:35px solid rgba(0,0,0,0.1);
+  background-clip        : content-box;
+  -moz-background-clip   : content;
+  -webkit-background-clip: content;
+  left:0px;
+  line-height:1em;
+  margin-top:-35px;
+  padding:0;
+
+  position:relative;
+
+  transition:all .25s ease-in-out;
+  -webkit-transition:all .25s ease-in-out;
+  -moz-transition:all .25s ease-in-out;
+  -o-transition:all .25s ease-in-out;
+  opacity:0;
+  visibility:hidden;
+  li{
+    margin:5px 0;
+    a{
+      background-color:transparent;
+      color:$elocalBlue;
+      &:hover{
+        color:$elocalOrange;
+      }
+    }
+  }
+}
+
+
+.nav-browser ul ul ul{
+  @include float(left, absolute);
+  @include rounded(5px);
+  border:{
+    left:5px solid rgba(0,0,0,0.1);
+    right:35px solid rgba(0,0,0,0.1);
+    top:35px solid rgba(0,0,0,0.1);
+    bottom:35px solid rgba(0,0,0,0.1);
+  }  background-clip        : content-box;
+  -moz-background-clip   : content;
+  -webkit-background-clip: content;
+  left:50px;
+  line-height:1em;
+  margin-top:-65px;
+  padding:0;
+
+  position:relative;
+
+  transition:all .25s ease-in-out;
+  -webkit-transition:all .25s ease-in-out;
+  -moz-transition:all .25s ease-in-out;
+  -o-transition:all .25s ease-in-out;
+  opacity:0;
+  visibility:hidden;
+  li{
+    margin:5px 0;
+  }
+}
+
+
+
+
+ .nav-browser ul li ul li .child-list-menu{
+  @include float(left, absolute);
+  border:{
+    left:5px solid rgba(0,0,0,0.1);
+    right:35px solid rgba(0,0,0,0.1);
+    top:35px solid rgba(0,0,0,0.1);
+    bottom:35px solid rgba(0,0,0,0.1);
+  }
+  background-clip        : content-box;
+  -moz-background-clip   : content;
+  -webkit-background-clip: content;
+  left:110px;
+  transition:all .35s ease-in-out;
+  -webkit-transition:all .35s ease-in-out;
+  -moz-transition:all .35s ease-in-out;
+  -o-transition:all .35s ease-in-out;
+  opacity:0;
+  margin-top:-65px;
+  visibility:hidden;
+
+ }
+.nav-browser ul li:hover > ul {
+  left:20px;
+  opacity:1;
+  visibility:visible;
+  li{
+    display:block;
+  }
+}
+
+.nav-browser ul li:hover > ul li:hover > ul {
+  left:70px;
+  opacity:1;
+  visibility:visible;
+  li{
+    display:block;
+  }
+}
+
+.nav-browser ul li:hover >ul li:hover > .child-list-menu {
+  left:120px;
+  opacity:1;
+  visibility:visible;
+
+}
+.child-list{
+  @include float;
+  width:145px;
+}
+
+
+.container-div{
+  background-color:$white;
+  border:1px solid $elocalBlue;
+  @include rounded(5px);
+  // @include float;
+  padding:5px 0;
+  // z-index:3000;
+  &.widget{
+    padding:5px;
+  }
+  &.overflow{
+    overflow:hidden;
+  }
+}
+.shadow-browser {@include boxshadow(2px, 3px, 5px, $charcoal);}
+
+
+.hide{
+  display:none;
+  visibility:hidden;
+}
+
+
+#div{
+  color:#fff;
+  display:block;
+  width:200px;
+  #box{
+    background-color:#333;
+    display:block;
+    overflow:hidden;
+    p{
+      margin:0;
+      padding:20px;
+      float:left;
+      position:relative;
+      display:block;
+    }
+  }
+}
+.in{
+  float:left;
+  background-color:#000;
+  color:#ffffff;
+  display:block;
+  width:200px;
+  .inside{
+    background-color:#f00;
+    margin:20px;
+  }
+}
+
+
+.dimmed{
+    opacity:.5;
+    filter: alpha(opacity=50);
+}
+
+
+
+#my{
+    border:1px solid #FF0;
+    height:500px;
+    width:500px;
+}
+
+
