@@ -4,13 +4,18 @@ require 'haml'
 require 'sass'
 
 get '/' do
-  @title = 'All Notes'
+  @title = 'Home'
   haml :index
 end
 
 get '/page' do
-  @title = 'All Notes'
+  @title = 'Page'
   haml :page
+end
+
+get '/slider' do
+  @title = 'Slider'
+  haml :slider
 end
 
 get '/stylesheet.css' do

@@ -1,0 +1,188 @@
+:javascript
+  $(document).ready(function() {
+
+  defaultWidth  = 247; //pixels
+  transition    = 500; //millisecond
+
+  function resetMargin(width) {
+
+    divLeftMargin = 0;
+
+    $('.additional-block').each(function() {
+
+      thisLeftMargin  = divLeftMargin + 'px';
+
+      $(this).css('margin-left', thisLeftMargin);
+
+      divLeftMargin = divLeftMargin + width;
+
+    });
+  }
+
+  resetMargin(defaultWidth);
+
+  $('.menu a').each(function() {
+
+    thisHref  = $(this).attr('href');
+
+    if($(thisHref).length > 0) {
+      $(this).addClass('has-child');
+    }
+
+  });
+
+  $('.menu a').click(function(event) {
+
+    event.preventDefault();
+
+    selectedDiv     = $(this).attr('href');
+    selectedMargin    = $(selectedDiv).css('margin-left');
+    selectedParent    = $(this).parents('.additional-block');
+    sliderMargin    = $('.slider').css('margin-left');
+    slidingMargin   = (parseInt(sliderMargin) - defaultWidth) + 'px';
+
+
+    if(selectedMargin.length > 0) {
+
+      $(selectedDiv).children('.header').prepend('<span class="back"></span>').bind('click', function () {
+
+        selectedParent  = $(this).parents('.additional-block');
+        sliderMargin  = - (parseInt(selectedParent.css('margin-left')) - defaultWidth) + 'px';
+        $('.slider').animate({marginLeft: sliderMargin}, transition);
+
+      });
+
+      if((parseInt(selectedMargin) - defaultWidth) >= defaultWidth) {
+
+        selectedParent.after($(selectedDiv));
+
+        resetMargin(defaultWidth);
+
+        $('.slider').animate({marginLeft: slidingMargin}, transition);
+
+      } else {
+
+        $('.slider').animate({marginLeft: slidingMargin}, transition);
+
+      }
+    }
+  });
+
+  });
+
+
+
+%h3 Slider
+
+#container
+  .binder
+    .slider
+      #start.additional-block
+        .header
+          Popular Categories
+        %ul.menu
+          %li
+            %a{href: "#arema"} Auto, Motorcycles & Boats
+          %li
+            %a{href: "#arema"} Dining & Entertainment
+          %li
+            %a{href: "#arema"} Health & Medical
+          %li
+            %a{href: "#home_services"} Home Services
+          %li
+            %a{href: "#arema"} Personal Services
+          %li
+            %a{href: "#arema"} Pets & Vets
+          %li
+            %a{href: "#arema"} Professional Services
+          %li
+            %a{href: "#arema"} Shopping & Retail
+          %li
+            %a{href: "#arema"} Transporation & Parking
+          %li
+            %a{href: "#arema"} Travel & Lodging
+
+
+      #home_services.additional-block
+        .header
+          Home Services
+        %ul.menu
+          %li
+            %a{href: "#markus"} Plumbers
+          %li
+            %a{href: "#markus"} Roofers
+          %li
+            %a{href: "#markus"} Electricians
+          %li
+            %a{href: "#markus"} Plumbers 1
+          %li
+            %a{href: "#markus"} Plumbers 2
+          %li
+            %a{href: "#markus"} Plumbers 3
+          %li
+            %a{href: "#markus"} Plumbers 4
+          %li
+            %a{href: "#markus"} Plumbers 5
+          %li
+            %a{href: "#markus"} Plumbers 6
+          %li
+            %a{href: "#markus"} Plumbers 7
+          %li
+            %a{href: "#markus"} Plumbers 8
+          %li
+            %a{href: "#markus"} Plumbers 9
+          %li
+            %a{href: "#markus"} Plumbers 10
+          %li
+            %a{href: "#markus"} Plumbers 11
+          %li
+            %a{href: "#home_service_more"} More
+
+      #home_service_more.additional-block
+        .header
+          Home Services Cont'
+        %ul.menu
+          %li
+            %a{href: "#"} Plumbers 12
+          %li
+            %a{href: "#"} Plumbers 13
+          %li
+            %a{href: "#"} Plumbers 14
+          %li
+            %a{href: "#"} Plumbers 15
+          %li
+            %a{href: "#"} Plumbers 16
+          %li
+            %a{href: "#"} Plumbers 17
+
+      #health_medical.additional-block
+        .header
+          Health & Medical
+        %ul.menu
+          %li
+            %a{href: "#doctors"} Chiropractors
+          %li
+            %a{href: "#doctors"} Dentists
+          %li
+            %a{href: "#doctors"} Doctors
+          %li
+            %a{href: "#doctors"} Doctors
+          %li
+            %a{href: "#doctors"} Doctors
+          %li
+            %a{href: "#doctors"} Doctors
+
+      #doctors.additional-block
+        .header
+          Doctors
+        %ul.menu
+          %li
+            %a{href: "#d1"} A
+
+      #persija.additional-block
+        .header
+          Arema Malang
+
+        %ul.menu
+          %li
+            %a{href: "#markus"} Markus Horison
