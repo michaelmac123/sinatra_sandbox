@@ -1,8 +1,11 @@
+# Libraries
 require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'sass'
 
+
+#Application
 get '/' do
   @title = 'Home'
   haml :index
