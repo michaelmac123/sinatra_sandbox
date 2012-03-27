@@ -1,0 +1,181 @@
+:javascript
+  $(document).ready(function(){
+
+      $('li:has(> ul)').addClass('parent');
+    
+
+      $("li.parent").bind("mouseenter",function(){
+        $("ul.children").css('display', 'block');
+      }).bind("mouseleave", function(){
+        $("ul.children").css('display', 'none');
+      });
+
+  });
+
+.js-nav
+  %ul.top
+    %li
+      %a{href: "#"} One
+    %li
+      %a{href: "#"} Two
+      %ul.children
+        %li
+          %a{href: "#"} 2.1
+        %li
+          %a{href: "#"} 2.2
+        %li
+          %a{href: "#"} 2.3                    
+    %li
+      %a{href: "#"} Three            
+
+
+
+
+
+
+.nav-browser
+  %ul
+    %li
+      %a{href: "#"} Browse Categories
+      %ul#hideMenu
+        .container-div.widget.shadow-browser
+          %li
+            %a.select-sub-category{href: "#"} Test 1
+            %ul
+              .container-div.widget.shadow-browser
+                %li
+                  %a.select-sub-category{href: "#"} Test 1.1
+                  .child-list-menu{style: "width:450px;"}
+                    .container-div.widget.shadow-browser.overflow
+                      .child-list
+                        %ol
+                          %li
+                            %a.select-sub-category{href: "#"} Test 1.1.1
+                          %li
+                            %a.select-sub-category Test 1.1.1.1
+                          %li
+                            %a.select-sub-category Test 1.1.1.2
+                          %li
+                            %a.select-sub-category Test 1.1.1.3
+                      .child-list
+                        %ol
+                          %li
+                            %a.select-sub-category Test 1.1.1.5
+                          %li
+                            %a.select-sub-category Test 1.1.1.6
+                          %li
+                            %a.select-sub-category Test 1.1.1.8
+                          %li
+                            %a.select-sub-category Test 1.1.1.9
+                      .child-list
+                        %ol
+                          %li
+                            %a.select-sub-category Test 1.1.1.10
+                          %li
+                            %a.select-sub-category Test 1.1.1.11
+                          %li
+                            %a.select-sub-category Test 1.1.1.12
+                          %li
+                            %a.select-sub-category Test 1.1.1.13
+          %li
+            %a.select-sub-category Test 2
+            .child-list-menu{style: "width:450px;"}
+              .container-div.widget.shadow-browser.overflow
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category{href: "#"} Test 2.1
+                    %li
+                      %a.select-sub-category Test 2.1.1
+                    %li
+                      %a.select-sub-category Test 2.1.2
+                    %li
+                      %a.select-sub-category Test 2.1.3
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 2.1.5
+                    %li
+                      %a.select-sub-category Test 2.1.6
+                    %li
+                      %a.select-sub-category Test 2.1.8
+                    %li
+                      %a.select-sub-category Test 2.1.9
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 2.1.10
+                    %li
+                      %a.select-sub-category Test 2.1.11
+                    %li
+                      %a.select-sub-category Test 2.1.12
+                    %li
+                      %a.select-sub-category Test 2.1.13
+          %li
+            %a.select-sub-category Test 3
+            .child-list-menu{style: "width:450px;"}
+              .container-div.widget.shadow-browser.overflow
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category{href: "#"} Test 3.1
+                    %li
+                      %a.select-sub-category Test 3.1.1
+                    %li
+                      %a.select-sub-category Test 3.1.2
+                    %li
+                      %a.select-sub-category Test 3.1.3
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 3.1.5
+                    %li
+                      %a.select-sub-category Test 3.1.6
+                    %li
+                      %a.select-sub-category Test 3.1.8
+                    %li
+                      %a.select-sub-category Test 3.1.9
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 3.1.10
+                    %li
+                      %a.select-sub-category Test 3.1.11
+                    %li
+                      %a.select-sub-category Test 3.1.12
+                    %li
+                      %a.select-sub-category Test 3.1.13
+          %li
+            %a.select-sub-category Test 4
+            .child-list-menu{style: "width:450px;"}
+              .container-div.widget.shadow-browser.overflow
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category{href: "#"} Test 4.1
+                    %li
+                      %a.select-sub-category Test 4.1.1
+                    %li
+                      %a.select-sub-category Test 4.1.2
+                    %li
+                      %a.select-sub-category Test 4.1.3
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 4.1.5
+                    %li
+                      %a.select-sub-category Test 4.1.6
+                    %li
+                      %a.select-sub-category Test 4.1.8
+                    %li
+                      %a.select-sub-category Test 4.1.9
+                .child-list
+                  %ol
+                    %li
+                      %a.select-sub-category Test 4.1.10
+                    %li
+                      %a.select-sub-category Test 4.1.11
+                    %li
+                      %a.select-sub-category Test 4.1.12
+                    %li
+                      %a.select-sub-category Test 4.1.13na

@@ -21,6 +21,11 @@ get '/slider' do
   haml :slider
 end
 
+get '/nav' do
+  @title = 'Nave'
+  haml :nav
+end
+
 get '/stylesheet.css' do
   scss :stylesheet
 end
