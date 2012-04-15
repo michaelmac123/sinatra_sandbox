@@ -8,6 +8,21 @@ div, ul, li, ol, a{
   padding:0;
 }
 
+
+#body_bg{
+  background-image:
+    url(/images/photo1.jpg),
+    url(/images/photo2.jpg),
+    url(/images/photo3.jpg)
+    ;
+    background-repeat:no-repeat;
+    background-position:
+      top left,
+      top right,
+      bottom center
+    ;
+}
+
 //just for sinatra fun!
 #wrapper{
     display:block;
@@ -332,6 +347,7 @@ div, ul, li, ol, a{
             display:none;
             position:absolute;
             top:15px;
+            opacity:0;
           }
           li{
             background-color:#f2f2f2;

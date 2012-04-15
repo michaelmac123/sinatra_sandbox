@@ -5,9 +5,15 @@
     
 
       $("li.parent").bind("mouseenter",function(){
-        $("ul.children").css('display', 'block');
+
+        opacityin = $("ul.children").css('opacity', '1');
+        displaythis = $("ul.children").css('display', 'block');
+        $("ul.children").css(opacityin, displaythis);
+
       }).bind("mouseleave", function(){
-        $("ul.children").css('display', 'none');
+        opacityout = $("ul.children").css('opacity', '0');
+        displayNo = $("ul.children").css('display', 'none');
+        $("ul.children").css(opacityout, displayNo);
       });
 
   });
