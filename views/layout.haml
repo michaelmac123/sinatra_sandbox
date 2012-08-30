@@ -13,16 +13,17 @@
     /[if lte IE 8]
       %script{src: "/excanvas.js", type: "text/javascript" }
       %link{href: "stylesheet_ie.css", rel: "stylesheet"}
-  %body#body_bg
+  %body
     #wrapper
-      %ul
-        %li
-          %a{href: "/"} Home
-        %li
-          %a{href: "/page"} Page
-        %li
-          %a{href: "/slider"} Slider
-        %li
-          %a{href: "/nav"} Nav
+      %nav.rib
+        .ribbon
+          %a{href: "/"}
+            %span Home
+          %a{href: "/page"}
+            %span Page
+          %a{href: "/slider"}
+            %span Slider
+          %a{href: "/nav"}
+            %span Nav
 
       =yield

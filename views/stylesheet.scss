@@ -367,3 +367,123 @@ div, ul, li, ol, a{
         }
 
       }
+
+nav.rib {
+	@include float;
+	width:100%;
+	text-align:center;
+}
+.ribbon {
+	@include float;
+	margin:10px auto;
+}
+.ribbon:after, .ribbon:before {
+    margin-top:0.5em;
+    content: "";
+    float:left;
+    border:1.5em solid $elocalOrange;
+}
+
+.ribbon:after {
+    border-right-color:transparent;
+}
+
+.ribbon:before {
+    border-left-color:transparent;
+}
+.ribbon a:link, .ribbon a:visited { 
+	    color:#000;
+	    text-decoration:none;
+	    float:left;
+	    height:3.5em;
+	    overflow:hidden;
+}
+.ribbon span {
+   	
+	background:$elocalOrange;
+   	display:inline-block;
+   	line-height:3em;
+   	padding:0 1em;
+   	margin-top:0.5em;
+   	position:relative;
+}
+
+.ribbon a:hover span {
+    background:#FFD204;
+    margin-top:0;
+}
+
+.ribbon span:before {
+    content: "";
+    position:absolute;
+    top:3em;
+    left:0;
+    border-right:1em solid #9B8651;
+    border-bottom:0.5em solid $elocalOrange;
+}
+
+.ribbon span:after {
+    content: "";
+    position:absolute;
+    top:3em;
+    right:0;
+    border-left:0.5em solid #9B8651;
+    border-bottom:0.5em solid $elocalOrange;
+}
+
+.ribbon-container {
+	@include float;
+	margin:				20px 0;
+	width:				100%;
+	h1 {
+		@include float;
+		background: 	$elocalBlue;
+		color:			rgba($elocalBlue, .75);
+		display:		block;
+		height:			4em;
+		line-height:	3.75em;
+		text:{
+			align:		center;
+			shadow:		1px 1px 0 lighten($elocalBlue, 5),-1px -1px 0 darken($elocalBlue, 5) ;  }
+		width:			100%;
+		z-index:		102;
+	&:before {
+		border-right:	1em solid darken($elocalBlue, 10);
+	    border-bottom:	1em solid $white;
+		content:    	"";
+		position:		absolute;
+		left:			0;
+		top:			4em;
+		z-index:		100;  }
+	&:after {
+		border-left:	1em solid darken($elocalBlue, 10);
+	    border-bottom:	1em solid $white;
+		content:    	"";
+		position:		absolute;
+		right:			0;
+		top:			4em;
+		z-index:		100;  }  }
+	.shadow {
+		@include boxshadow(0px, 2px, 25px, darken($elocalBlue, 15));
+		@include float;
+		height:			5px;
+		top:			-1.65em;
+		left:			10px;
+		display:		block;
+		width:			98%;
+		z-index:		101;	}
+}
+
+.arrow-end {
+	width:				80%;
+	h1 {
+		font-size:		1.6em;  }
+	h1:after {
+		border:			2em solid $elocalBlue;
+		content:		"";  
+		right:			-4em;
+		top:			0;  }
+	h1:after { 
+		border-right-color:transparent;  }  }
+
+

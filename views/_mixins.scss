@@ -1,6 +1,16 @@
 // Import files
 @import "colors";
 
+
+@mixin transitions($properties){
+	-webkit-transition: $properties;  /* Saf3.2+, Chrome */
+	-moz-transition: 	$properties;  /* FF4+ */
+	-ms-transition: 	$properties;  /* IE10 */
+	-o-transition: 		$properties;  /* Opera 10.5+ */
+	transition: 		$properties;
+
+}
+
 // Mixin for rounded
 
 @mixin rounded($radius: 10px){
