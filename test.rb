@@ -26,6 +26,16 @@ get '/nav' do
   haml :nav
 end
 
+get '/ribbon' do
+  @title = 'ribbons'
+  haml :ribbon
+end
+
+get '/animations' do
+  @title = 'animations'
+  haml :animations
+end
+
 get '/stylesheet.css' do
   scss :stylesheet
 end

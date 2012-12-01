@@ -223,3 +223,30 @@
 .clearfix {
     *zoom: 1;
 }
+
+
+@mixin animation($name:myAni, $speed:5s, $duration:infinite) {
+  animation:          $name $speed $duration;
+  -moz-animation:     $name $speed $duration;
+  -webkit-animation:  $name $speed $duration;
+  -o-animation:       $name $speed $duration;
+}
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+
+  @-o-keyframes $animation-name {
+    @content;
+  }
+
+  @keyframes $animation-name {
+    @content;
+  }
+}

@@ -2,7 +2,6 @@
 @import "colors";
 @import "mixins";
 
-
 div, ul, li, ol, a{
   margin:0;
   padding:0;
@@ -399,7 +398,7 @@ nav.rib {
 	    overflow:hidden;
 }
 .ribbon span {
-   	
+  @include transitions(.5s ease);
 	background:$elocalOrange;
    	display:inline-block;
    	line-height:3em;
@@ -486,4 +485,21 @@ nav.rib {
 	h1:after { 
 		border-right-color:transparent;  }  }
 
+#moving {
+  @include float;
+  @include animation;
+  background-color: red;
+  display:block;
+  height:100px;
+  width:100px;
+  z-index: 2000;
+  @extend %cool;
+}
 
+@include keyframes(myAni) {
+  0%  {top:0px; opacity: .1; }
+  50%    {top:200px; opacity: 1; width:200px; background-color:red;}
+  100%    {top:0px; opacity: .1;}
+}
+
+@import "silent-killa";
